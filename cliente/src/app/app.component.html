@@ -1,0 +1,24 @@
+<mat-toolbar>
+  <span>Busca por eventos</span>
+</mat-toolbar>
+
+<br />
+<div style="text-align: center">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="pesquisar($event)"
+    [disabled]="exibirProgressBar">
+    Pesquisar
+  </button>
+</div>
+
+<div *ngIf="exibirProgressBar">
+  <br />
+  <mat-progress-bar color="primary" mode="indeterminate"></mat-progress-bar>
+</div>
+
+<hr />
+<mat-card *ngFor="let resultado of resultadosObserver | async">
+  <strong>{{ resultado }}</strong>
+</mat-card>
